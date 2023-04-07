@@ -1,12 +1,11 @@
 import yandex_music as ym
-
 import config
 
 config.YANDEX_MUSIC_TOKEN
 
 
 class Player:
-    def __init__(self, client):
+    def __init__(self, client: ym.ClientAsync):
         self.client = client
         self.current_track = None
         self.current_track_info = None
@@ -22,11 +21,14 @@ class Player:
 
     async def get_track_info(self, track):
         track_name = track.title
-        if len(self.current_track.artists) > 1:
-            artist = ', '.join([i.name for i in self.current_track.artists])
-        else:
-            artist = self.current_track.artists[0].name
-        album = self.current_track.albums[0].title
+        try:
+            if len(track.artists) > 1:
+                artist = ', '.join([i.name for i in track.artists])
+            else:
+                artist = track.artists[0].name
+        except:
+            artist = 'I don\'t give a fuck who are they'
+        album = track.albums[0].title
         return f'{artist} - {track_name} ({album})'
 
     async def play(self):
@@ -38,5 +40,7 @@ class Player:
         self.current_track = self.queue.pop(0)
         self.download_track()
 
-    async def clear_queue(self):
-        self.queue.clear()
+    async def playlist(self, playlist_id=3):
+        tracks = (await self.client.users_playlists(playlist_id)).tracks
+        tracks = [i.track for i in tracks]
+        self.queue = tracks
