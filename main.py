@@ -13,5 +13,6 @@ async def on_ready():
     for i in os.listdir('./cogs'):
         if '.py' in i:
             await client.load_extension(f'cogs.{i[:-3]}')
+    print('All loadings complete')
 
 client.run(DISCORD_TOKEN)

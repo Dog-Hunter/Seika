@@ -1,7 +1,4 @@
 import yandex_music as ym
-import config
-
-config.YANDEX_MUSIC_TOKEN
 
 
 class Player:
@@ -10,6 +7,8 @@ class Player:
         self.current_track = None
         self.current_track_info = None
         self.queue = []
+        self.station_id = None
+        self.station_from = None
 
     async def search_track(self, query):
         search_result = await self.client.search(query)
