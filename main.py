@@ -7,7 +7,7 @@ from database.models import Base
 from database import engine
 from handlers.users import router
 
-token = '6819613538:AAHpHiOPPQTlwZAzhsscr7tekHS7E1fFrUs'
+token = ''
 
 dp = Dispatcher()
 dp.include_router(router)
