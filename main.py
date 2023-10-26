@@ -8,7 +8,7 @@ from handlers.users import create_user
 from handlers.timetable import timetable
 import config
 
-token = config.TOKEN
+token = '6514646017:AAEpN-y8UhG3tyN0RxQXvnG-leFd9l0uU_g'
 
 dp = Dispatcher()
 dp.include_router(create_user.router)

@@ -5,7 +5,6 @@ from aiogram.types import Message
 from datetime import datetime
 from datetime import timedelta
 from sqlalchemy import select
-
 from database import async_session
 from database.models import User
 import requests

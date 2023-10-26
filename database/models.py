@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, DateTime, Column
+from sqlalchemy import Integer, String, DateTime, Column, ForeignKey, Text
 from sqlalchemy.orm import DeclarativeBase
 
 class Base(DeclarativeBase):
@@ -14,3 +14,10 @@ class User(Base):
     surname = Column(String)
     name = Column(String)
     subgroup = Column(Integer)
+
+class Absence(Base):
+    __tablename__ = 'absences'
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    date = Column(DateTime)
+    text = Column(Text)

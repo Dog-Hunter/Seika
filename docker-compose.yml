@@ -1,11 +1,7 @@
 version: '3.7'
 
 services:
-  db:
-    image: postgres:alpine
-    restart: always
-    environment:
-        POSTGRES_PASSWORD: example
-        POSTGRES_DB: seika
+  redis:
+    image: redis:alpine3.18
     ports:
-      - "5432:5432"
+      - "6379:6379"
