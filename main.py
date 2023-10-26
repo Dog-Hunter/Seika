@@ -2,15 +2,17 @@ import asyncio
 
 from aiogram import Dispatcher, Bot
 from aiogram.enums import ParseMode
-from sqlalchemy.ext.asyncio import create_async_engine
 from database.models import Base
 from database import engine
-from handlers.users import router
+from handlers.users import create_user
+from handlers.timetable import timetable
+import config
 
-token = ''
+token = config.TOKEN
 
 dp = Dispatcher()
-dp.include_router(router)
+dp.include_router(create_user.router)
+dp.include_router(timetable.router)
 
 bot = Bot(token, parse_mode=ParseMode.HTML)
 

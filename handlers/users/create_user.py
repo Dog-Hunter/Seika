@@ -52,7 +52,7 @@ async def end_cmd(message: Message, state: FSMContext):
             data
         )
         await session.commit()
-    await message.answer(f'Welcome to Club, {data["name"]}!')
+    await message.answer(f'Nice to meet you, {data[0]["name"]}!')
     await state.clear()
 
 async def is_user_exsist(telegram_id):

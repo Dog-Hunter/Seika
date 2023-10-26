@@ -9,6 +9,8 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     telegram_id = Column(Integer)
     telegram_name = Column(String)
+    discord_id = Column(Integer)
+    discord_name = Column(String)
     surname = Column(String)
     name = Column(String)
     subgroup = Column(Integer)
