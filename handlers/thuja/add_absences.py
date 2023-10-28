@@ -1,7 +1,5 @@
 import asyncio
 from datetime import datetime
-
-from aiogram import Router
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
@@ -9,8 +7,7 @@ from aiogram.filters import Command
 from sqlalchemy import select, insert
 from database import async_session
 from database.models import User, Absence
-
-router = Router()
+from . import router
 
 class Absences(StatesGroup):
     a = State()

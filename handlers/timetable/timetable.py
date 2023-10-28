@@ -1,15 +1,12 @@
-import asyncio
-from aiogram import Router
+from datetime import timedelta, datetime
+import requests
 from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
-from datetime import datetime
-from datetime import timedelta
 from sqlalchemy import select
 from database import async_session
 from database.models import User
-import requests
+from . import router
 
-router = Router()
 
 async def get_schedule(days=1, subgroup=1):
     url = 'https://timetable.magtu.ru/api/v2/groups/31/schedule'

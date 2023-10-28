@@ -1,17 +1,12 @@
 import asyncio
-import time
-
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
-from aiogram import Router
 from aiogram.filters import CommandStart
 from sqlalchemy import select, insert
-
 from database import async_session
 from database.models import User
-
-router = Router()
+from . import router
 
 
 class CreateUser(StatesGroup):
