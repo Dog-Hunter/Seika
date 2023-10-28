@@ -25,7 +25,7 @@ async def start_cmd(message: Message, state: FSMContext):
                          'Let\'s fill some data')
     if (await is_user_exsist(message.from_user.id)):
         await asyncio.sleep(0.5)
-        await message.answer('Stop... Fuck!.. So, where do such idiots come from? I already have you data', reply_markup=main_keyboard.keyboard)
+        await message.answer('Stop... Fuck!.. So, where do such idiots come from? I already have you data')
         await state.clear()
     else:
         await message.answer('Samurai, what\'s your name')
@@ -57,7 +57,7 @@ async def end_cmd(message: Message, state: FSMContext):
             data
         )
         await session.commit()
-    await message.answer('Good girl, it turns out you\'re not that dumb, congratulations', reply_markup=main_keyboard.keyboard)
+    await message.answer('Good girl, it turns out you\'re not that dumb, congratulations')
     await state.clear()
 
 
